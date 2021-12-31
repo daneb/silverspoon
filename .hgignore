@@ -12,3 +12,4 @@ pom.xml.asc
 /.prepl-port
 .gitignore
 .git/**
+.clj-kondo/**
