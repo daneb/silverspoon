@@ -1,14 +1,13 @@
-(ns silverspoon.core)
+(ns silverspoon.core
+  (:require [selmer.parser :refer :all]))
 
-;; (defn keywordize [kvp]
-;;   (let [[k, v] kvp]
-;;     [(keyword (.replace k "--" "")) v]))
+(def setting {:view_engine "hiccup", :views "/Users/danebalia/html"})
 
-;; (defn parse-args [args]
-;;   (into {} (map (fn [[k v]] [(keyword (.replace k "--" "")) v])
-;;                 (partition 2 args))))
-;;
 (defn handler [request]
   {:status 200
    :headers {"Content-Type" "text/html"}
    :body "Hello World"})
+
+(defn html [file]
+  (selmer.parser/set-resource-path! (get setting :views))
+  (selmer.parser/render-file (str file  ".html") {}))

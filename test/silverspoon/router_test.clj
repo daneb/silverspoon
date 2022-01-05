@@ -8,7 +8,3 @@
          {:status 200
           :headers {"Content-Type" "text/html"}
           :body "Hello World"})))
-
-(deftest render-a-file
-  (is (= (html "test_view")
-         "<html><b>Test Page</b></html>\n")))
