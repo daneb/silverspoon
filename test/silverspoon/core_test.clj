@@ -10,5 +10,5 @@
           :body "Hello World"})))
 
 (deftest render-a-file
-  (is (= (html "test_view")
+  (is (= (html "test_view" {})
          "<html><b>Test Page</b></html>\n")))
