@@ -1,7 +1,7 @@
 (ns silverspoon.core
   (:require [selmer.parser :refer :all]))
 
-(def setting {:view_engine "hiccup", :views "/Users/danebalia/html"})
+(def setting {:view_engine "selmer", :views "/Users/danebalia/html"})
 
 (defn handler [request]
   {:status 200

@@ -12,3 +12,6 @@
   (is (= expected
          (deref silverspoon.router/routes))))
 
+(deftest matches-route
+  (is (= {:path "/test" :file "test_view"}
+         (silverspoon.router/match-route "get" "/test"))))
