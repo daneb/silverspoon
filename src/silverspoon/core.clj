@@ -8,6 +8,6 @@
    :headers {"Content-Type" "text/html"}
    :body "Hello World"})
 
-(defn html [file, locals]
+(defn render_html [file, locals]
   (selmer.parser/set-resource-path! (get setting :views))
   (selmer.parser/render-file (str file  ".html") locals))

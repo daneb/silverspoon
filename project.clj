@@ -6,6 +6,6 @@
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [ring "1.9.4"]
                  [ring/ring-mock "0.4.0"]
-                 [compojure "1.6.2"]
-                 [selmer "1.12.48"]]
+                 [selmer "1.12.48"]
+                 [mount "0.1.16"]]
   :repl-options {:init-ns silverspoon.core})

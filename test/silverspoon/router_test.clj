@@ -1,10 +1,18 @@
 (ns silverspoon.core-test
   (:require [clojure.test :refer :all]
-            [silverspoon.core :refer :all]
-            [ring.mock.request :as mock]))
+            [silverspoon.router :refer :all]))
 
-(deftest handles-a-get
-  (is (= (handler (mock/request :get "/"))
-         {:status 200
-          :headers {"Content-Type" "text/html"}
-          :body "Hello World"})))
+(def expected {:get [{:path "/test", :file "test_view"}]
+               :put [{}]
+               :patch [{}]
+               :delete [{}]
+               :post [{}]})
+
+(deftest supports-default-routes
+  (is (= expected
+         (deref silverspoon.router/routes))))
+
+(deftest supports-new-route
+  (silverspoon.router/route "post" "/" "home")
+  (is (= (update expected :get merge {:path "/" :file "home"})
+         (deref silverspoon.router/routes))))
