@@ -19,3 +19,7 @@
   (first (filter (fn [hashes]
                    (find-value-in-hash path hashes))
                  (get @routes (keyword method)))))
+
+(defn get-render-file [method path]
+  (let [file (:file (match-route method path))]
+    file))

@@ -3,12 +3,11 @@
             [silverspoon.core :refer :all]
             [ring.mock.request :as mock]))
 
+(def expected "<html><b>Test Page</b></html>\n")
+
 (deftest handles-a-get
-  (is (= (handler (mock/request :get "/"))
-         {:status 200
-          :headers {"Content-Type" "text/html"}
-          :body "Hello World"})))
+  (is (= expected
+         (handler (mock/request :get "/")))))
 
 (deftest render-a-file
-  (is (= (render_html "test_view" {})
-         "<html><b>Test Page</b></html>\n")))
+  (is (= expected (render-html "test_view" {}))))
