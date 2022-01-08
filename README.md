@@ -2,6 +2,19 @@
 
 A micro-web framework written in Clojure
 
-# HTML Rendering using Clojure
+### Functionality
 
-This is leverage using [Hiccup](https://github.com/weavejester/hiccup).
+1. A basic router
+2. Views with Clojure to HTML rendering
+3. Middleware support
+4. Template variable binding
+
+### Tests
+
+Run tests with Lein or Cider.
+
+```sh
+> lein test
+```
+
+`
