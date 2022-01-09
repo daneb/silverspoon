@@ -1,13 +1,19 @@
 # Silverspoon
 
-A micro-web framework written in Clojure
+An micro-web framework written in Clojure
 
-### Functionality
+### Current Functionality
 
-1. A basic router
-2. Views with Clojure to HTML rendering
-3. Middleware support
-4. Template variable binding
+1. A router
+2. Views in Clojure
+3. View rendered to HTML (with binding)
+4. Route matching
+5. All verb support and filtering (GET, PUT, POST, DELETE)
+
+### TODO
+
+1. Middleware integration
+2. Template binding through locals
 
 ### Tests
 

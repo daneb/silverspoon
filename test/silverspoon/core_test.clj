@@ -7,7 +7,7 @@
 
 (deftest handles-a-get
   (is (= expected
-         (handler (mock/request :get "/")))))
+         (handler (mock/request :get "/?search=car")))))
 
 (deftest render-a-file
   (is (= expected (render-html "test_view" {}))))

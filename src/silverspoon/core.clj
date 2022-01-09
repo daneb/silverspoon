@@ -14,6 +14,7 @@
     (silverspoon.router/get-render-file method path)))
 
 (defn handler [request]
+  (println request)
   (let [file (request-params request)]
     (if (string? file)
       (render-html file {})
