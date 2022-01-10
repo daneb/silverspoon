@@ -12,13 +12,15 @@
 (defn routes-by-method [method]
   (get @routes (keyword method)))
 
-(defn find-value-in-hash [value hashes]
-  (filter (comp #{value} last) hashes))
+(defn find-value-in-hash [value hash]
+  (filter (comp #{value} last) hash))
+
+(defn routes-for-method [method]
+  (get @routes (keyword method)))
 
 (defn match-route [method path]
-  (first (filter (fn [hashes]
-                   (find-value-in-hash path hashes))
-                 (get @routes (keyword method)))))
+  (first (filter (fn [hash] (first (find-value-in-hash path hash)))
+                 (routes-for-method method))))
 
 (defn get-render-file [method path]
   (let [file (:file (match-route method path))]

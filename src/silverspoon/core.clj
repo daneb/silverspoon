@@ -2,7 +2,7 @@
   (:require [selmer.parser :refer :all]
             [silverspoon.router :refer :all]))
 
-(def setting {:view_engine "selmer", :views "/Users/danebalia/html"})
+(def setting {:view_engine "selmer", :views (str (System/getProperty "user.dir") "/sample_app/views")})
 
 (defn render-html [file, locals]
   (selmer.parser/set-resource-path! (get setting :views))
@@ -14,8 +14,11 @@
     (silverspoon.router/get-render-file method path)))
 
 (defn handler [request]
-  (println request)
   (let [file (request-params request)]
+    (println file)
     (if (string? file)
-      (render-html file {})
+      {:status 200 :body (render-html file {:name "Dane"})}
       {:status 400 :body "Not Found"})))
+
+(def app
+  (-> handler))

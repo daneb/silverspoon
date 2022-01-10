@@ -7,5 +7,6 @@
                  [ring "1.9.4"]
                  [ring/ring-mock "0.4.0"]
                  [selmer "1.12.48"]
-                 [mount "0.1.16"]]
-  :repl-options {:init-ns silverspoon.core})
+                 [org.clojure/tools.trace "0.7.11"]]
+  :repl-options {:init-ns silverspoon.core}
+  :main silverspoon.main/-main)
